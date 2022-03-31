@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 const Item = ({id, nombre, precio,img, desc, cat, stock}) => {
     return (
         <>
-            <Card style={{margin:50}} sx={{ maxWidth: 345 }}>
+            <Card style={{margin:50}} sx={{ maxWidth: 350 }}>
         <CardMedia
             component="img"
             height="300"

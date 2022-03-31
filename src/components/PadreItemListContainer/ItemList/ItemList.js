@@ -6,7 +6,9 @@ const ItemList = ( {productos} ) => {
     return (
         <>
             <div className='container'>
+
                 {productos.map( (el) => <Item key={el.id} {...el}/>)}
+                
             </div>
         </>
     )

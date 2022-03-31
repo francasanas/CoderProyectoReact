@@ -46,6 +46,5 @@ export const stock = [
         img: 'https://i.imgur.com/tgYSPkj.jpg',
         stock: 50
     },
-
 ]
 
