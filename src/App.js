@@ -9,8 +9,9 @@ import ItemDetailContainer from '../src/components/ItemDetailPadreContain/ItemDe
 import Cart from './components/Cart/Cart';
 
 
+
 function App() {
-  return (
+  return ( 
     <>
       
       <BrowserRouter>
@@ -26,8 +27,6 @@ function App() {
         <Route path='/Cart' element={<Cart/>}/>
         <Route path='*' element={<Navigate to='/'/>}/>
         </Routes>
-
-
         
         
 

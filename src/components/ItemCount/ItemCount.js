@@ -1,33 +1,27 @@
 import React from 'react'
-import './ItemCount.css'
-import Button from '@mui/material/Button';
 
+const ItemCount = ({max, onAdd, cantidad, setCantidad}) => {
 
-const ItemCount = (props, onClick) => {
-
-    const [counter, setCounter] = React.useState(1);
-
-    const handlerCounterUp = () => {
-        if (counter < props.stock) {
-            setCounter(counter + 1);
-        }
-
+    const handleSumar = () => { 
+        cantidad < max && setCantidad(cantidad + 1)
     }
-    const handlerCounterDown = () => {
-        if (counter > props.valorInicial){
-            setCounter(counter - 1);
-        }
+
+    const handleRestar = () => {
+        cantidad > 1 && setCantidad(cantidad - 1)
     }
+
+
 
     return (
-        <div className='ItemCount'>
-            <p>{counter}</p>
-            <button onClick={handlerCounterDown}>➖</button> <button onClick={handlerCounterUp}>➕</button>
-            <div className='botonAñadirCarrito'>
-                <Button variant="outlined">Añadir al carrito</Button>
-            </div>
+        <div className='m-3'>
+            <button className='btn btn-outline-primary m-2' onClick={handleRestar}>-</button>
+            <span className='mx-2 p-1'>{cantidad}</span>
+            <button className='btn btn-primary m-2' onClick={handleSumar}>+</button>
+            <br/>
+            <button className='btn btn-success my-2' onClick={onAdd}>Agregar al carrito</button>
+
         </div>
     )
 }
 
-export default ItemCount;
+export default ItemCount

@@ -1,23 +1,46 @@
-import React from "react"
+import React, {useState} from "react"
 
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { useNavigate } from "react-router-dom";
-import ItemCount from "../../ItemCount/ItemCount";
+import ItemCount from '../../ItemCount/ItemCount'
+import Select from '../../Select/Select'
+
+const options = [
+    {value: 'large', text: 'Large'},
+    {value: 'medium', text: 'Medium'},
+    {value: 'small', text: 'Small'}
+]
 
 
-
-
-const ItemDetail = ({nombre, precio,img, desc, cat, stock}) => {
+const ItemDetail = ({id,nombre, precio,img, desc, cat, stock}) => {
 
     const navigate = useNavigate()
 
     const handleNavigate = () => {
             navigate(-1)
     }
-    
+
+    const [cantidad, setCantidad] = useState(1)
+    const [medida, setMedida] = useState('large')
+    console.log(medida);
+
+    const agregarAlCarrito = () => {
+        const itemToAdd = {
+            id,
+            nombre,
+            precio,
+            img,
+            desc,
+            medida,
+            cat,
+            cantidad
+        }
+        console.log(itemToAdd);
+    }
+
     return (
         <>
             <Card style={{margin:50}} sx={{ maxWidth: 500 }}>
@@ -43,7 +66,17 @@ const ItemDetail = ({nombre, precio,img, desc, cat, stock}) => {
             <Typography variant="body2" color="text.secondary">
             {desc}
             </Typography>
-            <ItemCount stock={stock} valorInicial={1}/>
+            <Select
+                option = {options}
+                onSelect = {setMedida}
+            />
+
+            <ItemCount
+                max={stock}
+                onAdd={agregarAlCarrito}
+                cantidad= {cantidad}
+                setCantidad={setCantidad}
+            />
             <hr/>
             <button className='btn btn-outline-primary' onClick={ handleNavigate}>Volver</button>
             
@@ -56,4 +89,3 @@ const ItemDetail = ({nombre, precio,img, desc, cat, stock}) => {
 
 
 export default ItemDetail 
-

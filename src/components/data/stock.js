@@ -2,13 +2,13 @@
 
 export const stock = [
     {
-        nombre: 'Remera Blanca Slim',
+        nombre: 'Remera Slim',
         id: 1,
         desc: 'Remera Blanca SlimFit para hombres, de muy buena calidad',
         cat: 'Hombre',
         precio: 1500,
         img: 'https://i.imgur.com/yo2QIDw.jpg',
-        stock: 50
+        stock: 19
     },
     {
         nombre: 'Remera Estampada Fit',
@@ -17,16 +17,16 @@ export const stock = [
         cat: 'Hombre',
         precio: 2000,
         img: 'https://i.imgur.com/LopnNCj.jpg',
-        stock: 50
+        stock: 20
     },
     {
-        nombre: 'Vestido de Mujer Largo Rojo',
+        nombre: 'Vestido de Mujer Largo',
         id: 3,
         desc: 'Vestido Largo Veraniego',
         cat: 'Mujer',
         precio: 2500,
         img: 'https://i.imgur.com/m2LLMql.jpg',
-        stock: 50
+        stock: 15
     },
     {
         nombre: 'Pollera Tubo',
@@ -35,7 +35,7 @@ export const stock = [
         cat: 'Mujer',
         precio: 1800,
         img: 'https://i.imgur.com/ZohVrGI.jpg',
-        stock: 50
+        stock: 18
     },
     {
         nombre: 'Anillo Unisex',
@@ -44,7 +44,7 @@ export const stock = [
         cat: 'Accesorios',
         precio: 600,
         img: 'https://i.imgur.com/tgYSPkj.jpg',
-        stock: 50
+        stock: 10
     },
 ]
 
