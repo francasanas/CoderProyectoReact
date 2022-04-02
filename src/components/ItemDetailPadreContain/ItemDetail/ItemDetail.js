@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, {useContext, useState} from "react"
 
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -7,6 +7,9 @@ import Typography from '@mui/material/Typography';
 import { useNavigate } from "react-router-dom";
 import ItemCount from '../../ItemCount/ItemCount'
 import Select from '../../Select/Select'
+import { CartContext } from "../../../context/CartContext";
+import { Link } from 'react-router-dom';
+
 
 const options = [
     {value: 'large', text: 'Large'},
@@ -16,6 +19,8 @@ const options = [
 
 
 const ItemDetail = ({id,nombre, precio,img, desc, cat, stock}) => {
+
+    const {addItem, isInCart} = useContext(CartContext)
 
     const navigate = useNavigate()
 
@@ -38,7 +43,7 @@ const ItemDetail = ({id,nombre, precio,img, desc, cat, stock}) => {
             cat,
             cantidad
         }
-        console.log(itemToAdd);
+        addItem(itemToAdd);
     }
 
     return (
@@ -71,12 +76,20 @@ const ItemDetail = ({id,nombre, precio,img, desc, cat, stock}) => {
                 onSelect = {setMedida}
             />
 
-            <ItemCount
-                max={stock}
-                onAdd={agregarAlCarrito}
-                cantidad= {cantidad}
-                setCantidad={setCantidad}
-            />
+            {
+                !isInCart(id)
+                    ?<ItemCount
+                        max={stock}
+                        onAdd={agregarAlCarrito}
+                        cantidad= {cantidad}
+                        setCantidad={setCantidad}
+                    />
+                    : <Link to='/Cart' className='btn btn-success  m-3 d-block my-3'>Terminar mi Compra</Link>
+            }
+            
+
+            
+
             <hr/>
             <button className='btn btn-outline-primary' onClick={ handleNavigate}>Volver</button>
             
