@@ -3,4 +3,8 @@ h2{
 }
 .container{
     width: 300px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
