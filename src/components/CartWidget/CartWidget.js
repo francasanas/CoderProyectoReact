@@ -10,7 +10,7 @@ const CartWidget = () => {
         <div>
             <div className='buttons'>
                 <Link to='/Cart' className='btn btn-outline-dark ms-2'>
-                    <i className="fa fa-shopping-cart me-1"></i><span>{cartQuantity()}</span>
+                    <i className="fa fa-shopping-cart me-1"></i><span>{cartQuantity() || ''}</span>
                 </Link>
             </div>
         </div>
