@@ -1,8 +1,9 @@
 import {useEffect, useState} from 'react'
 import { Container } from "@mui/material"
-import pedirDatos  from '../../PedirDatos/pedirDatos'
 import { useParams } from 'react-router-dom'
 import ItemDetail from '../ItemDetail/ItemDetail'
+import { db } from '../../../firebase/config'
+import { doc, getDoc } from 'firebase/firestore'
 
 const ItemDetailContainer = () => {
 
@@ -17,14 +18,15 @@ const ItemDetailContainer = () => {
 
         setLoading(true)
 
-        pedirDatos() 
-            .then((res) => {
-                setItem(res.find((prod) => prod.id === Number(itemId)))
+        const docRef = doc(db, 'productos', itemId) 
+        getDoc(docRef)
+            .then(doc =>{
+                const prod = {id : doc.id, ...doc.data()}
+                setItem(prod)
             })
             .finally(() =>{
                 setLoading(false)
             })
-        
 
     }, [itemId])
 
