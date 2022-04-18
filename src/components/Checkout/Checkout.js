@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { CartContext } from '../../context/CartContext'
 import { db } from '../../firebase/config'
-import { getDocs, query, where, documentId, writeBatch, collection, addDoc, Timestamp, doc, updateDoc, getDoc} from 'firebase/firestore'
+import { getDocs, query, where, documentId, writeBatch, collection, addDoc, Timestamp} from 'firebase/firestore'
 import { Link, Navigate  } from 'react-router-dom'
 
 
